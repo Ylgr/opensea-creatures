@@ -14,7 +14,8 @@ const setupCreatureAccessories = require("../lib/setupCreatureAccessories.js");
 
 // If you want to hardcode what deploys, comment out process.env.X and use
 // true/false;
-const DEPLOY_ALL = process.env.DEPLOY_ALL;
+// const DEPLOY_ALL = process.env.DEPLOY_ALL;
+const DEPLOY_ALL = true;
 const DEPLOY_ACCESSORIES_SALE = process.env.DEPLOY_ACCESSORIES_SALE || DEPLOY_ALL;
 const DEPLOY_ACCESSORIES = process.env.DEPLOY_ACCESSORIES || DEPLOY_ACCESSORIES_SALE || DEPLOY_ALL;
 const DEPLOY_CREATURES_SALE = process.env.DEPLOY_CREATURES_SALE || DEPLOY_ALL;
@@ -26,7 +27,10 @@ module.exports = async (deployer, network, addresses) => {
   // OpenSea proxy registry addresses for rinkeby and mainnet.
   let proxyRegistryAddress = "";
   if (network === 'rinkeby') {
-    proxyRegistryAddress = "0x1E525EEAF261cA41b809884CBDE9DD9E1619573A";
+    // proxyRegistryAddress = "0x1E525EEAF261cA41b809884CBDE9DD9E1619573A";
+    proxyRegistryAddress = "0x0Bd77a9246bf921E73A211F9c70a5C87E77bF790";
+  } else if(network === 'bsc_testnet') {
+    proxyRegistryAddress = "0x588CcA53d3039c934c52f523867a0ecf05a86c45";
   } else {
     proxyRegistryAddress = "0xa5409ec958c83c3f309868babaca7c86dcb077c1";
   }
